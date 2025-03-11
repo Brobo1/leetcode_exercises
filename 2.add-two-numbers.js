@@ -18,27 +18,34 @@
  * @return {ListNode}
  */
 let addTwoNumbers = function (l1, l2) {
-  let list = []
-  let s1 = ""
-  let s2 = ""
+  let head = new ListNode();
+  let current = head;
+  let carry = null;
+
   while (l1 || l2) {
-    s1 += l1.pop()
-    s2 += l2.pop()
+    const x = l1 ? l1.val : 0;
+    const y = l2 ? l2.val : 0;
+
+    const sum = x + y + carry;
+    carry = Math.floor(sum / 10);
+
+    current.next = new ListNode(sum % 10);
+    current = current.next;
+
+    if (l1) l1 = l1.next;
+    if (l2) l2 = l2.next;
   }
-  let total = (parseInt(s1) + parseInt(s2)).toString().split("")
-  
-  let head = new ListNode(parseInt(total.pop()))
-  let current = head
-  while (total.length) {
-    // list.push(parseInt(total.pop()))
-    current.next = new ListNode(parseInt(total.pop()))
-    current = current.next
+
+  if (carry > 0) {
+    current.next = new ListNode(carry);
   }
-  return head
+
+  return head.next;
 };
 
 function ListNode(val, next) {
-  this.val = (val === undefined ? 0 : val)
-  this.next = (next === undefined ? null : next)
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
 }
+
 // @lc code=end
