@@ -9,8 +9,16 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-    
-};
-// @lc code=end
 
+// let test = "abcabcbb"
+// let test = "bbbbb"
+let test = "pwwkew";
+
+let lengthOfLongestSubstring = function (s) {
+  for (const sKey of s) {
+    console.log(sKey);
+  }
+};
+
+lengthOfLongestSubstring(test);
+// @lc code=end
