@@ -34,11 +34,13 @@ var findMedianSortedArrays = function(nums1, nums2) {
 		merged.push(nums2[j])
 		j++
 	}
-
-	console.log(merged);
 		
+	if (merged.length % 2 === 0) {
+		return (merged[merged.length/2] + merged[merged.length/2-1])/2				
+	} else {
+		return merged[Math.floor(merged.length/2)]
+	}
 };
 
-findMedianSortedArrays([1,3], [2])
 // @lc code=end
 
