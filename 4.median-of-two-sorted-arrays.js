@@ -11,7 +11,10 @@
  * @return {number}
  */
 var findMedianSortedArrays = function(nums1, nums2) {
-    
+    const merged = []
+		let i = 0;
+		let j = 0; 
+
 };
 // @lc code=end
 
